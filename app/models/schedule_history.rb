@@ -1,0 +1,2 @@
+class ScheduleHistory < ApplicationRecord
+end

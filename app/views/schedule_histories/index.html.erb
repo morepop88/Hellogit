@@ -1,0 +1,36 @@
+<p id="notice">Ruby on Rails スケジュール管理アプリ<%= notice %></p>
+
+<h1>スケジュール一覧</h1>
+
+<table border="solid">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>タイトル</th>
+      <th>開始日</th>
+      <th>終了日</th>
+      <th>終日</th>
+      <th>スケジュール更新日時</th>
+      <th>確認</th>
+      <th>編集</th>
+      <th>削除</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @schedule_histories.each do |schedule_history| %>
+      <tr>
+        <td><%= schedule_history.task_name %></td>
+        <td><%= schedule_history.start_at %></td>
+        <td><%= schedule_history.end_at %></td>
+        <td><%= link_to 'Show', schedule_history %></td>
+        <td><%= link_to 'Edit', edit_schedule_history_path(schedule_history) %></td>
+        <td><%= link_to 'Destroy', schedule_history, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Schedule History', new_schedule_history_path %>
